@@ -41,8 +41,10 @@ public unsafe class LessCoreInputLagModule : EverestModule
     public override void Unload()
     {
         if (CorrectPlatform)
+        {
             solution?.Unload();
-        eveNativeHook.Dispose();
+            eveNativeHook.Dispose();
+        }
     }
 
     public void SwitchToSolution(SolutionEnum solutionEnum)

@@ -1,5 +1,5 @@
 - Name: LessCoreInputLag
-  Version: 0.2.5
+  Version: 0.2.6
   DLL: LessCoreInputLag.dll
   
   Dependencies:
