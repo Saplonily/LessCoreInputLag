@@ -1,0 +1,7 @@
+- Name: LessCoreInputLag
+  Version: 0.2.5
+  DLL: LessCoreInputLag.dll
+  
+  Dependencies:
+    - Name: Everest
+      Version: 1.4461.0

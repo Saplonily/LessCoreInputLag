@@ -1,0 +1,61 @@
+<Project>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net7</TargetFramework>
+
+		<CommonCelesteUsings>false</CommonCelesteUsings>
+		<EverestCoreVersion>false</EverestCoreVersion>
+		<ModAssetsFolderName>ModFolder</ModAssetsFolderName>
+    <ModAssetsCopyType>copy</ModAssetsCopyType>
+		<CelesteRootPath/>
+	</PropertyGroup>
+
+	<Import Project="Common.props"/>
+
+	<PropertyGroup>
+		<EverestCoreVersion Condition="Exists('$(CelesteRootPath)/Celeste.dll')">true</EverestCoreVersion>
+		<CelesteAssemblyPath>$(CelesteRootPath)</CelesteAssemblyPath>
+	</PropertyGroup>
+
+	<!--common usings-->
+	<ItemGroup Condition="'$(CommonCelesteUsings)' == 'true'">
+		<Using Include="Microsoft.Xna.Framework"/>
+		<Using Include="Monocle"/>
+		<Using Include="Celeste"/>
+		<Using Include="Celeste.Mod"/>
+		<Using Include="MonoMod.Cil"/>
+	</ItemGroup>
+
+	<!--common assembly references-->
+	<ItemGroup Condition="'$(CommonCelesteReferences)' == 'true'">
+		<Reference Include="Celeste">
+			<HintPath>$(CelesteAssemblyPath)/Celeste.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="FNA">
+			<HintPath>$(CelesteAssemblyPath)/FNA.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="MMHOOK_Celeste">
+			<HintPath>$(CelesteAssemblyPath)/MMHOOK_Celeste.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="YamlDotNet">
+			<HintPath>$(CelesteAssemblyPath)/YamlDotNet.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="MonoMod.Utils">
+			<HintPath>$(CelesteAssemblyPath)/MonoMod.Utils.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Mono.Cecil">
+			<HintPath>$(CelesteAssemblyPath)/Mono.Cecil.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+    <Reference Include="MonoMod.RuntimeDetour">
+      <HintPath>$(CelesteAssemblyPath)/MonoMod.RuntimeDetour.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+	</ItemGroup>
+
+</Project>
